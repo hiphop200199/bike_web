@@ -1,6 +1,6 @@
 import { useConstant } from '@/constants'
 import { useProductStore } from '@/stores/product'
-import { computed, onMounted, ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import Pagination from '@/components/Pagination.vue'
 import { useLoadingStore } from '@/stores/loading'

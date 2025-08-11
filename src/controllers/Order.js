@@ -1,6 +1,5 @@
 import { useConstant } from '@/constants'
 import { computed, onMounted } from 'vue'
-import { useFaqStore } from '@/stores/faq'
 import { useLoadingStore } from '@/stores/loading'
 import { useOrderStore } from '@/stores/order'
 import { useAuthStore } from '@/stores/auth'

@@ -3,7 +3,6 @@ import { computed, onMounted, reactive, ref } from 'vue'
 import { useCartStore } from '@/stores/cart'
 import { useAuthStore } from '@/stores/auth'
 import { useApi } from '@/apis'
-import router from '@/router'
 import { useLoadingStore } from '@/stores/loading'
 import { useAlertLBStore } from '@/stores/alertLB'
 
