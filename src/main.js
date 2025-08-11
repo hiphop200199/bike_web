@@ -1,3 +1,5 @@
+import './assets/styles/style.scss'
+import './plugins/veeValidate.js'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 

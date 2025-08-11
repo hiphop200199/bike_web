@@ -2,13 +2,21 @@
 
 <template>
   <div class="container">
-    <div class="video-box">
-      <video src="/bookstore.mp4" loop muted autoplay></video>
-      <div class="border-box">
-        <p>熱門書籍歡迎光臨休南洞書店</p>
-        <router-link :to="'/info/' + '1'">探索更多</router-link>
-      </div>
-    </div>
+    <swiper
+      :autoplay="{
+        delay: 3000,
+        disableOnInteraction: false,
+      }"
+      :pagination="{
+        dynamicBullets: true,
+      }"
+      :modules="modules"
+      class="mySwiper"
+    >
+      <swiper-slide v-for="(item, index) in bannerList" :key="index"
+        ><img :src="item.image_url" alt=""
+      /></swiper-slide>
+    </swiper>
     <h1>全新上市</h1>
     <div class="new-list-block">
       <router-link
@@ -25,20 +33,20 @@
     <!--swiper-->
     <div class="category-grid">
       <div class="box">
-        <img src="/nature.jpg" alt="" />
-        <router-link :to="'/list/' + '自然生物'">自然生物</router-link>
+        <img src="/giant.jpg" alt="" />
+        <router-link :to="'/list/' + '1'">GIANT</router-link>
       </div>
       <div class="box">
-        <img src="/novel.jpg" alt="" />
-        <router-link :to="'/list/' + '文學小說'">文學小說</router-link>
+        <img src="/merida.jpg" alt="" />
+        <router-link :to="'/list/' + '2'">Merida</router-link>
       </div>
       <div class="box">
-        <img src="/magazine.jpg" alt="" />
-        <router-link :to="'/list/' + '各類雜誌'">各類雜誌</router-link>
+        <img src="/besv.jpg" alt="" />
+        <router-link :to="'/list/' + '3'">BESV</router-link>
       </div>
       <div class="box">
-        <img src="/design.jpg" alt="" />
-        <router-link :to="'/list/' + '設計相關'">設計相關</router-link>
+        <img src="/tern.jpg" alt="" />
+        <router-link :to="'/list/' + '4'">Tern</router-link>
       </div>
     </div>
   </div>
