@@ -80,7 +80,7 @@ export default {
       const response = await useApi.cart.checkout(form)
       loadingStore.close()
       if (response.code === useConstant.StatusCode.SUCCESS) {
-        alertLBStore.open(response.message, useConstant.LBDirection.BACK, '')
+        window.location.href = response.data.url
       } else {
         alertLBStore.open(response.message, useConstant.LBDirection.STAY)
       }
