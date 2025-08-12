@@ -55,6 +55,10 @@ const checkout = async (secondPrefix, params) => {
   return (await axios.post(BASE_PREFIX + secondPrefix + '/checkout', params)).data.response
 }
 
+const success = async (secondPrefix, params) => {
+  return (await axios.post(BASE_PREFIX + secondPrefix + '/success', params)).data.response
+}
+
 export const request = {
   getList,
   get,
@@ -69,4 +73,5 @@ export const request = {
   getNewest,
   getNewestList,
   checkout,
+  success,
 }

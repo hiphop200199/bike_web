@@ -21,3 +21,7 @@ export const destroy = async (id) => {
 export const checkout = async (params) => {
   return await request.checkout(secondPrefix, params)
 }
+
+export const success = async (params) => {
+  return await request.success(secondPrefix, params)
+}
