@@ -7,12 +7,11 @@
         <img :src="info.image_url" alt="" />
       </div>
       <div class="text-box">
-        <h1>書名：{{ info.name }}</h1>
-        <p>主題：{{ info.theme }}</p>
-        <p>語言：{{ info.language }}</p>
-        <p>作者：{{ info.author }}</p>
-        <p>出版社：{{ info.publisher }}</p>
-        <p>出版日期：{{ info.publish_date }}</p>
+        <h1>名稱：{{ info.name }}</h1>
+        <p>廠商：{{ info.vendor_name }}</p>
+        <p>顏色：{{ info.color }}</p>
+        <p>承重限制：{{ info.limit }}kg</p>
+        <p>適用身高：{{ info.height }}cm</p>
         <p>價格： NT${{ info.price }}</p>
         <p>庫存：{{ info.stock == 0 ? '尚無庫存' : info.stock }}</p>
         <p>簡介：{{ info.introduction }}</p>

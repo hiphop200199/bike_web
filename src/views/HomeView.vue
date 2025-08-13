@@ -2,19 +2,9 @@
 
 <template>
   <div class="container">
-    <swiper
-      :autoplay="{
-        delay: 3000,
-        disableOnInteraction: false,
-      }"
-      :pagination="{
-        dynamicBullets: true,
-      }"
-      :modules="modules"
-      class="mySwiper"
-    >
+    <swiper :modules="modules" class="swiper-adjust mySwiper">
       <swiper-slide v-for="(item, index) in bannerList" :key="index"
-        ><img :src="item.image_url" alt=""
+        ><img class="swiper-slide-img" :src="item.image_url" alt=""
       /></swiper-slide>
     </swiper>
     <h1>全新上市</h1>

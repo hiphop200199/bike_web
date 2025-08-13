@@ -12,14 +12,11 @@
   details {
     margin-block: 30px;
   }
-  .video-box {
-    position: relative;
-    video {
-      display: inline-block;
+  .swiper-adjust {
+    height: 70dvh;
+    .swiper-slide-img {
       width: 100%;
-      height: auto;
-      aspect-ratio: 1920/1080;
-      border: none;
+      object-fit: cover;
     }
   }
   .new-list-block {
@@ -90,7 +87,7 @@
       span.error {
         font-size: 14px;
         margin-right: 5px;
-        color: value.$red;
+        color: value.$white;
       }
       .buttons {
         display: flex;
@@ -202,7 +199,7 @@
     }
     span {
       font-size: 14px;
-      color: value.$red;
+      color: value.$white;
     }
   }
   .pagination {

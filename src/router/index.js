@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import { useAuthStore } from '@/stores/auth'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -18,7 +19,7 @@ const router = createRouter({
       component: () => import('../views/BusinessInformationView.vue'),
     },
     {
-      path: '/list/:theme',
+      path: '/list/:vendor',
       name: 'list',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
@@ -82,14 +83,6 @@ const router = createRouter({
       component: () => import('../views/OrderDetailView.vue'),
     },
     {
-      path: '/cart',
-      name: 'cart',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/CartView.vue'),
-    },
-    {
       path: '/success',
       name: 'success',
       component: () => import('../views/SuccessView.vue'),
@@ -107,6 +100,19 @@ const router = createRouter({
       component: () => import('../views/CancelView.vue'),
     },
   ],
+})
+
+//預防沒權限的情況下瀏覽某些路由
+router.beforeEach(async (to) => {
+  const authstore = useAuthStore()
+  const loginRoutes = ['cart', 'member', 'order', 'orderDetail', 'success', 'cancel']
+  if (loginRoutes.includes(to.name)) {
+    const redirectToLogin = await authstore.checkLogin()
+
+    if (redirectToLogin) {
+      return { name: 'login' }
+    }
+  }
 })
 
 export default router

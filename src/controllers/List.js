@@ -14,21 +14,22 @@ export default {
     const route = useRoute()
     const router = useRouter()
     const loadingStore = useLoadingStore()
-    const theme = ref('')
+    const vendor = ref('')
+    const vendorName = ref('')
     const list = computed(() => productStore.list)
     const pagination = computed(() => productStore.pagination)
 
     const defaultSearchQuery = {
       page: '1',
       perpage: '10',
-      theme: '',
+      vendor: '',
     }
 
     const searchQuery = JSON.parse(JSON.stringify(defaultSearchQuery))
 
     const getQuery = async () => {
       searchQuery.page = route.query.page ? route.query.page : defaultSearchQuery.page
-      searchQuery.theme = route.params.theme ? route.params.theme : defaultSearchQuery.theme
+      searchQuery.vendor = route.params.vendor ? route.params.vendor : defaultSearchQuery.vendor
       router.push({ query: searchQuery })
     }
     const setPage = async (page) => {
@@ -47,7 +48,23 @@ export default {
         if (val !== undefined) {
           await getQuery()
           await getList(searchQuery)
-          theme.value = route.params.theme
+          vendor.value = route.params.vendor
+          switch (route.params.vendor) {
+            case '1':
+              vendorName.value = 'GIANT'
+              break
+            case '2':
+              vendorName.value = 'Merida'
+              break
+            case '3':
+              vendorName.value = 'BESV'
+              break
+            case '4':
+              vendorName.value = 'Tern'
+              break
+            default:
+              break
+          }
         }
       },
       { deep: true, immediate: true },
@@ -57,7 +74,8 @@ export default {
       list,
       pagination,
       setPage,
-      theme,
+      vendor,
+      vendorName,
       useConstant,
     }
   },

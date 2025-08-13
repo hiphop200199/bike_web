@@ -3,9 +3,10 @@ import { computed, onMounted } from 'vue'
 import { useLoadingStore } from '@/stores/loading'
 import { useBannerStore } from '@/stores/banner'
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Autoplay, Pagination } from 'swiper/modules'
+import { Navigation, Pagination } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/pagination'
+import 'swiper/css/navigation'
 
 export default {
   components: {
@@ -38,7 +39,7 @@ export default {
     })
 
     return {
-      modules: [Autoplay, Pagination],
+      modules: [Navigation, Pagination],
       newestList,
       bannerList,
     }

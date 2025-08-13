@@ -2,7 +2,7 @@
 
 <template>
   <div class="container">
-    <h1>{{ theme }}</h1>
+    <h1>{{ vendorName }}</h1>
     <div class="list-box">
       <router-link :to="'/info/' + item.id" class="card" v-for="(item, index) in list" :key="index">
         <img :src="item.image_url" alt="" />
